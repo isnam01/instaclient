@@ -4,7 +4,6 @@ import {UserContext} from '../../App.js' ;
 import {Link,useHistory} from 'react-router-dom';
 import pic from '../../images/pic.png'; 
 import M from 'materialize-css';
-import * as EmailValidator from 'email-validator';
 
 const Login=()=>{
     const {dispatch}=useContext(UserContext)
