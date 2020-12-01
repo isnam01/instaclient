@@ -12,10 +12,6 @@ const Login=()=>{
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
     const postData=()=>{
-        if(EmailValidator.validate(email))
-        {
-            return M.toast({html:"Email Invalid",classes:"#e53935 red darken-1"})
-        }
         fetch("https://qwertians.herokuapp.com/signin",{
             method:"post",
             headers:{
