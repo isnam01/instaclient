@@ -4,18 +4,19 @@ import {UserContext} from '../../App.js' ;
 import {Link,useHistory} from 'react-router-dom';
 import pic from '../../images/pic.png'; 
 import M from 'materialize-css';
+import * as EmailValidator from 'email-validator';
 
 const Login=()=>{
-    const {state,dispatch}=useContext(UserContext)
+    const {dispatch}=useContext(UserContext)
     const history=useHistory()
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
     const postData=()=>{
-        if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email))
+        if(EmailValidator.validate(email))
         {
             return M.toast({html:"Email Invalid",classes:"#e53935 red darken-1"})
         }
-        fetch("/signin",{
+        fetch("https://qwertians.herokuapp.com/signin",{
             method:"post",
             headers:{
                 "Content-Type":"application/json"

@@ -2,13 +2,14 @@ import React,{useEffect,useState,useContext} from 'react';
 import {UserContext} from '../../App.js' ;
 import {useParams} from 'react-router-dom';
 
+
 const UserProfile=()=>{
     const {state,dispatch}=useContext(UserContext)
     const [userProfile,setProfile]=useState([])
     const {userid}=useParams()
     const [showFollow,setFollow]=useState(state?!state.following.includes(userid):true)
     useEffect(()=>{
-        fetch(`/user/${userid}`,{
+        fetch(`https://qwertians.herokuapp.com/user/${userid}`,{
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             }
@@ -25,10 +26,10 @@ const UserProfile=()=>{
         .catch((err)=>{
             console.log(err)
         })
-    },[])
+    },[userid])
 
     const followUser=()=>{
-        fetch('/follow',{
+        fetch('https://qwertians.herokuapp.com/follow',{
             method:"put",
             headers:{
                 "Content-Type":"application/json",
@@ -69,7 +70,7 @@ const UserProfile=()=>{
     
 
     const unfollowUser=()=>{
-        fetch('/unfollow',{
+        fetch('https://qwertians.herokuapp.com/unfollow',{
             method:"put",
             headers:{
                 "Content-Type":"application/json",
@@ -82,9 +83,9 @@ const UserProfile=()=>{
         .then(resp=>{
             resp.json()
             .then((data)=>{
+                console.log(data)
                 dispatch({type:"UPDATE",payload:{followers:data.followers,following:data.following}})
                 localStorage.setItem("user",JSON.stringify(data))
-                console.log(data)
                 setProfile((prevState)=>{
                     const newfollower=prevState.user.followers.filter(item=>item.toString()!==data._id.toString())
                     return {
@@ -119,7 +120,7 @@ const UserProfile=()=>{
             borderBottom:"1px solid gray"
             }}>
                 <div>
-                    <img src="" style={{height:"100px" ,width:"100px",borderRadius:"50px"}}
+                    <img style={{height:"100px" ,width:"100px",borderRadius:"50px"}}
                     src={userProfile? userProfile.picture:null} alt="pic"></img>
                 </div>
                 <div>

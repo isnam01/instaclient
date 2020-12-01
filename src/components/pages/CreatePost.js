@@ -3,16 +3,16 @@ import M from 'materialize-css';
 import {useHistory} from 'react-router-dom';
 
 const CreatePost=()=>{
-    const history=useHistory()
     const [title,setTitle]=useState("")
     const [body,setBody]=useState("")
     const [image,setImage]=useState("")
+    const history=useHistory()
     const [url,setUrl]=useState("")
 
     useEffect(()=>{
         if(url)
         {
-            fetch("/createpost",{
+            fetch("https://qwertians.herokuapp.com/createpost",{
                 method:"post",
                 headers:{
                     "Content-Type":"application/json",
@@ -40,7 +40,7 @@ const CreatePost=()=>{
                 console.log(err)
             })
         }
-    },[url])
+    },[url,title,body,history])
 
     const postimage=()=>{
         const data=new FormData()

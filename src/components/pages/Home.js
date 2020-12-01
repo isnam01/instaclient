@@ -6,9 +6,9 @@ import {Link} from 'react-router-dom';
 
 const Home=()=>{
     const [data,setData]=useState([])
-    const {state,dispatch}=useContext(UserContext)
+    const {state}=useContext(UserContext)
     useEffect(()=>{
-        fetch("/allpost",{
+        fetch("https://qwertians.herokuapp.com/allpost",{
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             }
@@ -27,7 +27,7 @@ const Home=()=>{
     },[])
 
 const likepost=(id)=>{
-    fetch("/like",{
+    fetch("https://qwertians.herokuapp.com/like",{
         method:"put",
         headers:{
             "Content-Type":"Application/json",
@@ -59,7 +59,7 @@ const likepost=(id)=>{
 }
 
 const unlikepost=(id)=>{
-    fetch("/unlike",{
+    fetch("https://qwertians.herokuapp.com/unlike",{
         method:"put",
         headers:{
             "Content-Type":"Application/json",
@@ -91,7 +91,7 @@ const unlikepost=(id)=>{
 }
 
 const makeComment=(text,id)=>{
-    fetch("/comments",{
+    fetch("https://qwertians.herokuapp.com/comments",{
         method:"put",
         headers:{
             "Content-Type":"Application/json",
@@ -123,7 +123,7 @@ const makeComment=(text,id)=>{
         })
 }
 const deleteComment=(commId,id)=>{
-    fetch("/comments",{
+    fetch("https://qwertians.herokuapp.com/comments",{
         method:"delete",
         headers:{
             "Content-Type":"Application/json",
@@ -157,7 +157,7 @@ const deleteComment=(commId,id)=>{
 }
 
 const deletePost=(postId)=>{
-    fetch("/myposts",{
+    fetch("https://qwertians.herokuapp.com/myposts",{
         method:"delete",
         headers:{
             "Content-Type":"Application/json",
