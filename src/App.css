@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Engagement&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@600&display=swap');
+
+body{
+    font-family: 'El Messiri', sans-serif;
+}
 
 a{
     color:black !important;
@@ -11,6 +16,19 @@ a{
     color:#26466D;
 }
 
+.card-content{
+    text-transform: capitalize;
+}
+
+.head {
+    display: flex;
+    justify-content:space-between;
+    padding:10px;
+}
+.home-card h5{
+    margin:0;
+    
+}
 .mycard{
     display:flex;
     margin:30px;

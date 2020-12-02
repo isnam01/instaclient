@@ -11,9 +11,9 @@ const Navbar=()=>{
         if(state)
         {
             return [
-                <li><Link to="/profile">Profile</Link></li>,
-                <li><Link to="/createpost">Create Post</Link></li>,
-                <li><Link to="/explore">Explore</Link></li>,
+                <li style={{color:"black"}}><Link to="/profile">Profile</Link></li>,
+                <li style={{color:"black"}}><Link to="/createpost">Create Post</Link></li>,
+                <li style={{color:"black"}}><Link to="/explore">Explore</Link></li>,
                 <button className="btn waves-effect waves-light" 
                 onClick={()=>{
                     localStorage.clear()
