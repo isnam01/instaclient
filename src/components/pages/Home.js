@@ -201,8 +201,8 @@ const deletePost=(postId)=>{
                             }
                         </div>
                         
-                        <div className="card-image">
-                            <img src={item.picture} alt="pic"></img>
+                        <div className="card-image" >
+                            <img src={item.picture} alt="pic" ></img>
                         </div>
                         <div className="card-content">
                             <div style={{display:"flex",justifyContent:"flex-start",fontSize:"15px"}}>

@@ -203,7 +203,7 @@ const deletePost=(id)=>{
                         </div>
                         
                         <div className="card-image">
-                            <img src={item.picture} alt="pic" style={{maxHeight:"100px"}}></img>
+                            <img src={item.picture} alt="pic" ></img>
                         </div>
                         <div className="card-content">
                             <div style={{display:"flex",justifyContent:"flex-start",fontSize:"15px"}}>
@@ -225,8 +225,8 @@ const deletePost=(id)=>{
                                     return(
                                     <div key={record._id+'b'} style={{display:"flex",justifyContent:"space-between",paddingTop:"5px"}}>
                                         <div style={{display:"flex"}}>
-                                            <span key={record._id+'a'} style={{fontWeight:"900",fontSize:"14px" }}><b>{record.postedby.name} : </b></span>
-                                            <span key={record._id} style={{fontSize:"14px",marginLeft:"4px", color:"#505050"}}>{record.text}</span>
+                                            <span key={record._id+'a'} style={{fontWeight:"900",fontSize:"14px" }}><b>{record.postedby.name+":"}</b></span>
+                                            <span key={record._id} style={{fontSize:"14px",marginLeft:"4px", color:"#505050"}}> {record.text}</span>
                                         </div>
                                         {
                                             record.postedby._id===state._id ?
