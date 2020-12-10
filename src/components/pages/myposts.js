@@ -203,7 +203,7 @@ const deletePost=(id)=>{
                         </div>
                         
                         <div className="card-image">
-                            <img src={item.picture} alt="pic"></img>
+                            <img src={item.picture} alt="pic" style={{maxHeight:"100px"}}></img>
                         </div>
                         <div className="card-content">
                             <div style={{display:"flex",justifyContent:"flex-start",fontSize:"15px"}}>
