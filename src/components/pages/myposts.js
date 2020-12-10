@@ -172,6 +172,7 @@ const deletePost=(id)=>{
         .then((result)=>{
             M.toast({html:"Deleted Successfully",classes:"#4caf50 green"})
             const newData=data.filter((item)=>{
+                console.log(result)
                 return item._id.toString() !== result._id.toString()
             })
             setData(newData)
@@ -222,9 +223,9 @@ const deletePost=(id)=>{
                             {
                                 item.comments.map((record)=>{
                                     return(
-                                    <div style={{display:"flex",justifyContent:"space-between",paddingTop:"5px"}}>
+                                    <div key={record._id+'b'} style={{display:"flex",justifyContent:"space-between",paddingTop:"5px"}}>
                                         <div style={{display:"flex"}}>
-                                            <span style={{fontWeight:"900",fontSize:"14px" }}><b>{record.postedby.name} : </b></span>
+                                            <span key={record._id+'a'} style={{fontWeight:"900",fontSize:"14px" }}><b>{record.postedby.name} : </b></span>
                                             <span key={record._id} style={{fontSize:"14px",marginLeft:"4px", color:"#505050"}}>{record.text}</span>
                                         </div>
                                         {

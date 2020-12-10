@@ -4,7 +4,6 @@ import {useHistory} from 'react-router-dom';
 
 const CreatePost=()=>{
     const [title,setTitle]=useState("")
-    const [body,setBody]=useState("")
     const [image,setImage]=useState("")
     const history=useHistory()
     const [url,setUrl]=useState("")
@@ -20,7 +19,6 @@ const CreatePost=()=>{
                 },
                 body:JSON.stringify({
                     title,
-                    body,
                     pic:url,
                 })  
             }).then((res)=>{
@@ -40,7 +38,7 @@ const CreatePost=()=>{
                 console.log(err)
             })
         }
-    },[url,title,body,history])
+    },[url,title,history])
 
     const postimage=()=>{
         const data=new FormData()
@@ -74,14 +72,6 @@ const CreatePost=()=>{
             onChange={(e)=>
                 setTitle(e.target.value)
             } />
-            <input 
-            type="text" 
-            placeholder="Enter some text"
-            value={body}
-            onChange={(e)=>
-                setBody(e.target.value)
-            }
-            />
             <div className="file-field input-field">
                 <div className="btn">
                     <span>Upload</span>
