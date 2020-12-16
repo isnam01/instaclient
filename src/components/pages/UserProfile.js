@@ -9,7 +9,7 @@ const UserProfile=()=>{
     const {userid}=useParams()
     const [showFollow,setFollow]=useState(state?!state.following.includes(userid):true)
     useEffect(()=>{
-        fetch(`https://qwertians.herokuapp.com/user/${userid}`,{
+        fetch(`http://localhost:5000/user/${userid}`,{
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             }
@@ -29,7 +29,7 @@ const UserProfile=()=>{
     },[userid])
 
     const followUser=()=>{
-        fetch('https://qwertians.herokuapp.com/follow',{
+        fetch('http://localhost:5000/follow',{
             method:"put",
             headers:{
                 "Content-Type":"application/json",
@@ -70,7 +70,7 @@ const UserProfile=()=>{
     
 
     const unfollowUser=()=>{
-        fetch('https://qwertians.herokuapp.com/unfollow',{
+        fetch('http://localhost:5000/unfollow',{
             method:"put",
             headers:{
                 "Content-Type":"application/json",

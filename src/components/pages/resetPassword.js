@@ -5,20 +5,17 @@ import {Link,useHistory} from 'react-router-dom';
 import pic from '../../images/pic.png'; 
 import M from 'materialize-css';
 
-const Login=()=>{
-    const {dispatch}=useContext(UserContext)
+const Reset=()=>{
     const history=useHistory()
     const [email,setEmail]=useState("")
-    const [password,setPassword]=useState("")
     const postData=()=>{
-        fetch("http://localhost:5000/signin",{
+        fetch("http://localhost:5000/resetpassword",{
             method:"post",
             headers:{
                 "Content-Type":"application/json"
             },
             body:JSON.stringify({
                 email,
-                password
             })
             
         }).then(res=>res.json())
@@ -28,13 +25,8 @@ const Login=()=>{
                 M.toast({html:data.error,classes:"#e53935 red darken-1"})
             }
             else{
-                console.log(data)
-                console.log(typeof(data.user))
-                localStorage.setItem("jwt",data.token)
-                localStorage.setItem("user",JSON.stringify(data.user))
-                dispatch({type:"USER",payload:data.user})
-                M.toast({html:"Signed In Successfully",classes:"#4caf50 green"})
-                history.push('/')
+                M.toast({html:data.message,classes:"#4caf50 green"})
+                history.push('http://localhost:5000/signin')
             }
         })
         .catch((err)=>{
@@ -53,22 +45,13 @@ const Login=()=>{
                 value={email}
                 onChange={(e)=>{setEmail(e.target.value)}}>
                 </input>
-                <input 
-                type="password" 
-                placeholder="password" 
-                value={password}
-                onChange={(e)=>{setPassword(e.target.value)}}>
-                </input>
                                
                 <button className="btn waves-effect waves-light" onClick={()=>postData()}>
-                    Login
+                    Reset Password
                 </button>
-                <h5 style={{fontSize:"17px"}}>
-                    <Link to='/signup'>Don't have an account?</Link>
-                </h5>
             </div>
         </div>
     )
 }
 
-export default Login
+export default Reset

@@ -9,6 +9,7 @@ import Login from './components/pages/Login';
 import UserProfile from './components/pages/UserProfile';
 import Myposts from './components/pages/myposts';
 import CreatePost from './components/pages/CreatePost';
+import Reset from './components/pages/resetPassword';
 import {reducer,initialState} from './reducer/Userreducer';
 
 
@@ -26,6 +27,7 @@ const Routing=()=>
       dispatch({type:"USER",payload:user})
     }
     else{
+      if(!history.location.pathname.startsWith('/reset'))
       history.push('/login')
     }
   },[dispatch,history])
@@ -51,6 +53,9 @@ const Routing=()=>
         </Route>
         <Route path='/explore'>
           <Home/>
+        </Route>
+        <Route path='/reset'>
+          <Reset/>
         </Route>
   </Switch>
   )
