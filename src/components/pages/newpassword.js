@@ -1,21 +1,22 @@
 import React from 'react';
-import {useState,useContext} from 'react';
-import {UserContext} from '../../App.js' ;
-import {Link,useHistory} from 'react-router-dom';
+import {useState} from 'react';
+import {Link,useHistory,useParams} from 'react-router-dom';
 import pic from '../../images/pic.png'; 
 import M from 'materialize-css';
 
-const Reset=()=>{
+const Newp=()=>{
     const history=useHistory()
-    const [email,setEmail]=useState("")
+    const [password,setPassword]=useState("")
+    const {token}=useParams()
     const postData=()=>{
-        fetch("https://qwertians.herokuapp.com/resetpassword",{
+        fetch("https://qwertians.herokuapp.com/newpassword",{
             method:"post",
             headers:{
                 "Content-Type":"application/json"
             },
             body:JSON.stringify({
-                email,
+                password,
+                token
             })
             
         }).then(res=>res.json())
@@ -40,18 +41,18 @@ const Reset=()=>{
                 <h2>Qwerty</h2>
                 <h4 style={{fontSize:"13px"}}>--- Let's Connect ! ---</h4>
                 <input 
-                type="text" 
-                placeholder="email" 
-                value={email}
-                onChange={(e)=>{setEmail(e.target.value)}}>
+                type="password" 
+                placeholder="Enter new password" 
+                value={password}
+                onChange={(e)=>{setPassword(e.target.value)}}>
                 </input>
                                
                 <button className="btn waves-effect waves-light" onClick={()=>postData()}>
-                    Reset Password
+                    Create new password
                 </button>
             </div>
         </div>
     )
 }
 
-export default Reset
+export default Newp

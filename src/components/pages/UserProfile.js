@@ -4,12 +4,18 @@ import {useParams} from 'react-router-dom';
 
 
 const UserProfile=()=>{
-    const {state,dispatch}=useContext(UserContext)
+    var {state,dispatch}=useContext(UserContext)
+    if(typeof(state)==="string")
+    {
+        state=JSON.parse(state)
+        console.log(state)
+    }
     const [userProfile,setProfile]=useState([])
     const {userid}=useParams()
+   
     const [showFollow,setFollow]=useState(state?!state.following.includes(userid):true)
     useEffect(()=>{
-        fetch(`http://localhost:5000/user/${userid}`,{
+        fetch(`https://qwertians.herokuapp.com/user/${userid}`,{
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             }
@@ -29,7 +35,7 @@ const UserProfile=()=>{
     },[userid])
 
     const followUser=()=>{
-        fetch('http://localhost:5000/follow',{
+        fetch('https://qwertians.herokuapp.com/follow',{
             method:"put",
             headers:{
                 "Content-Type":"application/json",
@@ -70,7 +76,7 @@ const UserProfile=()=>{
     
 
     const unfollowUser=()=>{
-        fetch('http://localhost:5000/unfollow',{
+        fetch('https://qwertians.herokuapp.com/unfollow',{
             method:"put",
             headers:{
                 "Content-Type":"application/json",
@@ -112,6 +118,7 @@ const UserProfile=()=>{
             userProfile ?
             (
             <div style={{maxWidth:"700px",margin:"0px auto"}}>
+                {console.log(typeof(userProfile))}
             <div style={{
             display:"flex",
             flexDirection:"row",

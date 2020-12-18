@@ -2,10 +2,14 @@ import React,{useEffect,useState,useContext} from 'react';
 import {UserContext} from '../../App.js' ;
 
 const Profile=()=>{
-    const {state}=useContext(UserContext)
+    var {state}=useContext(UserContext)
     const [data,setdata]=useState([])
+    if(typeof(state)==="string")
+    {
+        state=JSON.parse(state)
+    }
     useEffect(()=>{
-        fetch("http://localhost:5000/mypost",{
+        fetch("https://qwertians.herokuapp.com/mypost",{
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             }
@@ -25,6 +29,7 @@ const Profile=()=>{
 
     return(
         <div style={{maxWidth:"700px",margin:"0px auto"}}>
+            
             <div style={{
             display:"flex",
             flexDirection:"row",

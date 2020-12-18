@@ -11,7 +11,7 @@ const Login=()=>{
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
     const postData=()=>{
-        fetch("http://localhost:5000/signin",{
+        fetch("https://qwertians.herokuapp.com/signin",{
             method:"post",
             headers:{
                 "Content-Type":"application/json"
@@ -66,6 +66,9 @@ const Login=()=>{
                 <h5 style={{fontSize:"17px"}}>
                     <Link to='/signup'>Don't have an account?</Link>
                 </h5>
+                <h6 style={{fontSize:"13px"}}>
+                    <Link to='/resetpassword'>Forgotten Password?</Link>
+                </h6>
             </div>
         </div>
     )
