@@ -92,7 +92,7 @@ const Navbar=()=>{
                         (
                             userdetails.map((item)=>{
                                 return (
-                                <Link to={"/profile/"+item._id} onClick={()=>{setModalIsOpen(false); setsearch(''); setuserdeatils([])}}><li className="collection-item">{item.name}</li></Link>
+                                <Link to={item._id !== state._id ? "/profile/"+item._id:'/profile'} onClick={()=>{setModalIsOpen(false); setsearch(''); setuserdeatils([])}}><li className="collection-item">{item.name}</li></Link>
                                 )
                             })
                         )
