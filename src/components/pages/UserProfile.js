@@ -128,7 +128,7 @@ const UserProfile=()=>{
             }}>
                 <div>
                     <img style={{height:"100px" ,width:"100px",borderRadius:"50px"}}
-                    src={userProfile.user? userProfileuser..picture:null} alt="pic"></img>
+                    src={userProfile.user? userProfile.user.picture:null} alt="pic"></img>
                 </div>
                 <div>
                    <h5>
