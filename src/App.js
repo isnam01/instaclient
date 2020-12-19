@@ -59,6 +59,9 @@ const Routing=()=>
           <Reset/>
         </Route>
         <Route path='/resetpassword/:token'>
+          {
+            console.log("here")
+          }
           <Newp/>
         </Route>
   </Switch>
