@@ -118,7 +118,7 @@ const UserProfile=()=>{
             userProfile ?
             (
             <div style={{maxWidth:"700px",margin:"0px auto"}}>
-                {console.log(typeof(userProfile))}
+                {console.log((userProfile))}
             <div style={{
             display:"flex",
             flexDirection:"row",
