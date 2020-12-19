@@ -55,15 +55,16 @@ const Routing=()=>
         <Route path='/explore'>
           <Home/>
         </Route>
-        <Route exact path='/resetpassword'>
-          <Reset/>
-        </Route>
-        <Route path='/resetpassword/:token'>
+        <Route exact path='/resetpassword/:token'>
           {
             console.log("here")
           }
           <Newp/>
         </Route>
+        <Route exact path='/resetpassword'>
+          <Reset/>
+        </Route>
+       
   </Switch>
   )
 }
