@@ -11,7 +11,7 @@ const Login=()=>{
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
     const postData=()=>{
-        fetch("https://qwertians.herokuapp.com/signin",{
+        fetch("http://localhost:5000/signin",{
             method:"post",
             headers:{
                 "Content-Type":"application/json"

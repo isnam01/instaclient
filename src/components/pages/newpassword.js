@@ -9,7 +9,7 @@ const Newp=()=>{
     const [password,setPassword]=useState("")
     const {token}=useParams()
     const postData=()=>{
-        fetch("https://qwertians.herokuapp.com/newpassword",{
+        fetch("http://localhost:5000/newpassword",{
             method:"post",
             headers:{
                 "Content-Type":"application/json"
