@@ -52,7 +52,7 @@ const SignUp=()=>{
         {
             return M.toast({html:"Password must be greater than 5 characters",classes:"#e53935 red darken-1"})
         }
-        fetch("http://localhost:5000/signup",{
+        fetch("https://qwertians.herokuapp.com/signup",{
             method:"post",
             headers:{
                 "Content-Type":"application/json"

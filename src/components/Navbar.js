@@ -44,7 +44,7 @@ const Navbar=()=>{
 
     const fetchusers=((query)=>{
         setsearch(query)
-        fetch('http://localhost:5000/search',{
+        fetch('https://qwertians.herokuapp.com/search',{
             method:"post",
             headers:{
                 "Content-Type":"application/json"

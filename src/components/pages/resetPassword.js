@@ -9,7 +9,7 @@ const Reset=()=>{
     const history=useHistory()
     const [email,setEmail]=useState("")
     const postData=()=>{
-        fetch("http://localhost:5000/resetpassword",{
+        fetch("https://qwertians.herokuapp.com/resetpassword",{
             method:"post",
             headers:{
                 "Content-Type":"application/json"

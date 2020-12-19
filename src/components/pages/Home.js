@@ -12,7 +12,7 @@ const Home=()=>{
         state=JSON.parse(state)
     }
     useEffect(()=>{
-        fetch("http://localhost:5000/allpost",{
+        fetch("https://qwertians.herokuapp.com/allpost",{
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             }
@@ -31,7 +31,7 @@ const Home=()=>{
     },[])
 
 const likepost=(id)=>{
-    fetch("http://localhost:5000/like",{
+    fetch("https://qwertians.herokuapp.com/like",{
         method:"put",
         headers:{
             "Content-Type":"Application/json",
@@ -63,7 +63,7 @@ const likepost=(id)=>{
 }
 
 const unlikepost=(id)=>{
-    fetch("http://localhost:5000/unlike",{
+    fetch("https://qwertians.herokuapp.com/unlike",{
         method:"put",
         headers:{
             "Content-Type":"Application/json",
@@ -95,7 +95,7 @@ const unlikepost=(id)=>{
 }
 
 const makeComment=(text,id)=>{
-    fetch("http://localhost:5000/comments",{
+    fetch("https://qwertians.herokuapp.com/comments",{
         method:"put",
         headers:{
             "Content-Type":"Application/json",
@@ -127,7 +127,7 @@ const makeComment=(text,id)=>{
         })
 }
 const deleteComment=(commId,id)=>{
-    fetch("http://localhost:5000/comments",{
+    fetch("https://qwertians.herokuapp.com/comments",{
         method:"delete",
         headers:{
             "Content-Type":"Application/json",
@@ -161,7 +161,7 @@ const deleteComment=(commId,id)=>{
 }
 
 const deletePost=(postId)=>{
-    fetch("http://localhost:5000/myposts",{
+    fetch("https://qwertians.herokuapp.com/myposts",{
         method:"delete",
         headers:{
             "Content-Type":"Application/json",

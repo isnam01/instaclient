@@ -9,7 +9,7 @@ const Profile=()=>{
         state=JSON.parse(state)
     }
     useEffect(()=>{
-        fetch("http://localhost:5000/mypost",{
+        fetch("https://qwertians.herokuapp.com/mypost",{
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             }
