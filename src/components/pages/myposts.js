@@ -265,7 +265,7 @@ const deletePost=(id)=>{
                 )
                 : null        
             } 
-            <h5>Follow people to see posts</h5>  
+            <h5 style={{margin:"auto"}}>Follow people to see posts</h5>  
         </div>
     )
 }
